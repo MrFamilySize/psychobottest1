@@ -10,13 +10,12 @@ module.exports.run = async (bot, message, args) => {
     if(!creason) return errors.noReason(message.channel);
   
     let clancreateEmbed = new Discord.RichEmbed()
-    .setDescription("Clan")
+    .setDescription("Create a Clan")
     .setColor("#ff0000")
-    .addField("Wanted User", `${ccUser} with ID: ${ccUser.id}`)
     .addField("Requested By", `${message.author} with ID: ${message.author.id}`)
     .addField("Channel", message.channel)
     .addField("Time", message.createdAt)
-    .addField("Reason", creason);
+    .addField("Name", creason);
   
     let clancreatechannel = message.guild.channels.find(c => c.name === "clancreate");
     if(!clancreatechannel) return message.channel.send("Couldn't find reports channel.");

@@ -1,12 +1,8 @@
 const botconfig = require("./botconfig.json");
-const tokenfile = process.env.TOKEN;
+const tokenfile = require("./token.json");
 const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client();
-require('dotenv/config');
-const http = require('http');
-//this  is a simple server
-http.createServer().listen(port);
 bot.commands = new Discord.Collection();
 let purple = botconfig.purple;
 let cooldown = new Set();
@@ -43,6 +39,7 @@ bot.on('guildMemberAdd', member => {
   if(!channel) return;
 
   channel.send(`Welcome to FN Scrims and more, ${member}, go to #bot-spam and do !help to get started.`)
+    
 });
 
 bot.on("message", async message => {
@@ -84,10 +81,6 @@ bot.on("message", async message => {
     cooldown.delete(message.author.id)
   }, cdseconds * 1000)
 
-});
-
-bot.on('error', err => {
-  console.log("err");
 });
 
 bot.login(tokenfile.token);
