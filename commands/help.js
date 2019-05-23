@@ -6,6 +6,7 @@ module.exports.run = async (bot, message, args) => {
         .setAuthor("FN Bot")
         .setDescription("Help Menu")
         .setColor("#ff0000")
+        .setThumbnail(message.author.avatarURL)
         .addField("More Help", "!help <command>")
         .addField("!help", "This is the command your using if your a moderator check dm's for the commands")
         .addField("!report", "Use this command to report breaking TOS or the server rules")
