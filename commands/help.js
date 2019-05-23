@@ -2,12 +2,17 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     let helpembed = new Discord.RichEmbed()
-        .setTitle("Help")
+        .setTitle("Commands")
         .setAuthor("FN Bot")
         .setDescription("Help Menu")
-        .setColor("#ffffff")
-        .addField("Member Commands", "!help, !apply, !serverinfo, !botinfo, !userinfo, and !report.")
-        .addField("More Help", "!help <command>");
+        .setColor("#ff0000")
+        .addField("More Help", "!help <command>")
+        .addField("!help", "This is the command your using if your a moderator check dm's for the commands")
+        .addField("!report", "Use this command to report breaking TOS or the server rules")
+        .addField("!serverinfo", "This command explains our server and tells what it does")
+        .addField("!clancreate", "this command allows you to create a server clan giving you roles bots logos and channels to access free")
+        .addField("!botinfo", "This command tell you info about our bot");
+
 
     message.channel.send(helpembed);
     if (message.member.hasPermission("MANAGE_MESSAGES")) {
