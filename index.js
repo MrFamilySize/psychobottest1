@@ -4,7 +4,6 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client();
 bot.commands = new Discord.Collection();
-let coins = require("./coins.json");
 let purple = botconfig.purple;
 let cooldown = new Set();
 let cdseconds = 5;
@@ -55,24 +54,7 @@ bot.on("message", async message => {
     };
   }
 
-  if(!coins[message.author.id]){
-    coins[message.author.id] = {
-      coins: 0
-    };
-  }
-
-  let coinAmt = math.floor(Math.random() * 15) + 1;
-  let baseAmt = math.floor(Math.random() * 15) + 1;
-  console.log(`${coinAmt} ; ${baseAmt}`);
-
-if(coinAmt === baseAmt){
-  coins[message.author.id] = {
-    coins: coins[message.author.id].coins + coinAmt
-  };
-  fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
-    if (err) console.log(err)
-  });
-}
+ 
 
   let prefix = prefixes[message.guild.id].prefixes;
   if (!message.content.startsWith(prefix)) return;
@@ -88,8 +70,6 @@ if(coinAmt === baseAmt){
       message.reply('https://docs.google.com/forms/d/e/1FAIpQLSe1SEnSpGEHjUljqujxuGGXaoZmr6huOQCL0zWACwYq2Yhy6g/viewform?usp=sf_link');
     };
   
-
-
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
