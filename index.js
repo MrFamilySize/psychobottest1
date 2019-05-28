@@ -34,15 +34,6 @@ bot.on("ready", async () => {
 });
 
 bot.on('guildMemberAdd', member => {
-  console.log('User' + member.user.tag + 'has joined the server!');
-
-  var role = Collection.find('name', 'user');
-  member.addRole(553026380909248532);
-  if(!condition) return;
-
-})
-
-bot.on('guildMemberAdd', member => {
 
   const channel = member.guild.channels.find(channel => channel.name === "welcome");
   if(!channel) return;
