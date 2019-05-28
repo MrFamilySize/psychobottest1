@@ -42,7 +42,6 @@ bot.on('guildMemberAdd', member => {
 
 })
 
-
 bot.on('guildMemberAdd', member => {
 
   const channel = member.guild.channels.find(channel => channel.name === "welcome");
@@ -91,6 +90,11 @@ bot.on("message", async message => {
     cooldown.delete(message.author.id)
   }, cdseconds * 1000)
 
+});
+
+bot.on('guildMemberAdd', member => { //this will check when a new member has joined your server.
+var role = member.guild.roles.find('name', 'Member'); //this will Look/find the role.
+member.addRole(role) //this finally adds the role
 });
 
 bot.login(tokenfile.token);
