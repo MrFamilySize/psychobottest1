@@ -52,7 +52,7 @@ bot.on('guildMemberAdd', member => {
 });
 
 bot.on('guildMemberAdd', member => { //this will check when a new member has joined your server.
-  var role = member.guild.roles.find('name', 'Member'); //this will Look/find the role.
+  var role = member.guild.roles.find('name', 'Members'); //this will Look/find the role.
   member.addRole(role) //this finally adds the role
   });
 
