@@ -51,6 +51,11 @@ bot.on('guildMemberAdd', member => {
     
 });
 
+bot.on('guildMemberAdd', member => { //this will check when a new member has joined your server.
+  var role = member.guild.roles.find('name', 'Member'); //this will Look/find the role.
+  member.addRole(role) //this finally adds the role
+  });
+
 bot.on("message", async message => {
 
   if (message.author.bot) return;
@@ -92,9 +97,6 @@ bot.on("message", async message => {
 
 });
 
-bot.on('guildMemberAdd', member => { //this will check when a new member has joined your server.
-var role = member.guild.roles.find('name', 'Member'); //this will Look/find the role.
-member.addRole(role) //this finally adds the role
-});
+
 
 bot.login(tokenfile.token);
